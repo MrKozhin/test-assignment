@@ -21,7 +21,6 @@ public class TestLanguageSwitch extends BaseTest {
         Wait().until(visibilityOf(articlePage.getLanguageRussianButton()));
         articlePage.getLanguageRussianButton().click();
         articlePage.getWikiLogoRussian().shouldBe(Condition.attribute("title", "Перейти на заглавную страницу"));
-
     }
 
 }
