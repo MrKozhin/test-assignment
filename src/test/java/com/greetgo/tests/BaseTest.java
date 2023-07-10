@@ -28,7 +28,6 @@ public abstract class BaseTest {
         Configuration.browser = "chrome";
         Configuration.driverManagerEnabled = true;
         Configuration.headless = false;
-        //Configuration.browserSize = "1920x1080";
     }
 
     @BeforeTest
