@@ -1,15 +1,12 @@
 package com.greetgo.tests;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.elements;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import com.greetgo.util.Randomizer;
 import com.greetgo.data.TestsData;
+import com.greetgo.util.Randomizer;
 import org.testng.annotations.Test;
 
 public class TestSearch extends BaseTest {

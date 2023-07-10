@@ -9,8 +9,8 @@ import com.greetgo.pages.SearchResultPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 public abstract class BaseTest {
 
@@ -30,7 +30,7 @@ public abstract class BaseTest {
         Configuration.headless = false;
     }
 
-    @BeforeTest
+    @BeforeClass
     public void setUp() {
         init();
         mainPage = new MainPage();
@@ -39,7 +39,7 @@ public abstract class BaseTest {
         articlePage = new ArticlePage();
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown() {
         Selenide.closeWebDriver();
     }

@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Test assignment for greetgo!">
+
+  <test name="Test 5 scenarios">
+    <classes>
+      <class name="com.greetgo.tests.TestSearch"/>
+      <class name="com.greetgo.tests.TestLinkToMainPage"/>
+      <class name="com.greetgo.tests.TestParagraphs"/>
+      <class name="com.greetgo.tests.TestContents"/>
+      <class name="com.greetgo.tests.TestLanguageSwitch"/>
+    </classes>
+  </test>
+</suite>
