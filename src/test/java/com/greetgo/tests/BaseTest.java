@@ -2,6 +2,7 @@ package com.greetgo.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.greetgo.pages.ArticlePage;
 import com.greetgo.pages.CodeInspectPage;
 import com.greetgo.pages.MainPage;
 import com.greetgo.pages.SearchResultPage;
@@ -16,6 +17,7 @@ public abstract class BaseTest {
     protected MainPage mainPage;
     protected SearchResultPage searchResultPage;
     protected CodeInspectPage codeInspectPage;
+    protected ArticlePage articlePage;
 
     public void init() {
         WebDriverManager.chromedriver().setup();
@@ -35,6 +37,7 @@ public abstract class BaseTest {
         mainPage = new MainPage();
         searchResultPage = new SearchResultPage();
         codeInspectPage = new CodeInspectPage();
+        articlePage = new ArticlePage();
     }
 
     @AfterTest

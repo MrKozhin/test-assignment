@@ -16,9 +16,12 @@ public class TestLinkToMainPage extends BaseTest {
         Selenide.open(codeInspectPage.getURL());
         getWebDriver().manage().window().maximize();
 
-        codeInspectPage.getLinkToMainPage().shouldHave(Condition.attribute("href", link));
-        codeInspectPage.getBurgerMenu().click();
-        codeInspectPage.getLinkToMainPage().click();
+        codeInspectPage.getLinkToMainPage()
+                       .shouldHave(Condition.attribute("href", link));
+        codeInspectPage.getBurgerMenu()
+                       .click();
+        codeInspectPage.getLinkToMainPage()
+                       .click();
         Wait().until(titleIs(pageTitle));
     }
 }

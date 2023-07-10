@@ -19,13 +19,19 @@ public class TestSearch extends BaseTest {
         Selenide.open(mainPage.getURL());
         getWebDriver().manage().window().maximize();
 
-        mainPage.getSearchInputField().shouldBe(Condition.visible);
+        mainPage.getSearchInputField()
+                .shouldBe(Condition.visible);
 
         String randomString = Randomizer.getRandomString(randomStringLength);
-        mainPage.getSearchInputField().setValue(randomString).pressEnter();
-        searchResultPage.getSearchResultHeading().shouldBe(Condition.text(headerText));
-        searchResultPage.getSearchInputFieldFillingText().shouldBe(Condition.attribute("value", randomString));
-        searchResultPage.getSearchResultQuickView().shouldHave(CollectionCondition.sizeLessThanOrEqual(numOfSearchResultsQuickViews));
+        mainPage.getSearchInputField()
+                .setValue(randomString)
+                .pressEnter();
+        searchResultPage.getSearchResultHeading()
+                        .shouldBe(Condition.text(headerText));
+        searchResultPage.getSearchInputFieldFillingText()
+                        .shouldBe(Condition.attribute("value", randomString));
+        searchResultPage.getSearchResultQuickView()
+                        .shouldHave(CollectionCondition.sizeLessThanOrEqual(numOfSearchResultsQuickViews));
     }
 
 }
