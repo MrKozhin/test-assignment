@@ -11,7 +11,7 @@ public class TestContents extends BaseTest {
 
     @Test
     public void testArticleContent() {
-        Selenide.open(articlePage.getRandomURL());
+        Selenide.open(articlePage.getRANDOM_URL());
         getWebDriver().manage().window().maximize();
 
         articlePage.getContents().shouldBe(Condition.visible);

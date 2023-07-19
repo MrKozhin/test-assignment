@@ -1,13 +1,13 @@
 package com.greetgo.tests;
 
-import static com.codeborne.selenide.Selenide.Wait;
-
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.url;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 
 public class TestLanguageSwitch extends BaseTest {
@@ -17,10 +17,29 @@ public class TestLanguageSwitch extends BaseTest {
         Selenide.open(articlePage.getURL());
         getWebDriver().manage().window().maximize();
 
-        articlePage.getLanguageDropdown().click();
-        Wait().until(visibilityOf(articlePage.getLanguageRussianButton()));
-        articlePage.getLanguageRussianButton().click();
-        articlePage.getWikiLogoRussian().shouldBe(Condition.attribute("title", "Перейти на заглавную страницу"));
+        articlePage.getLanguageDropdown()
+                    .click();
+        articlePage.getLanguageRussianButton()
+                    .shouldBe(visible)
+                    .click();
+        articlePage.getWikiLogoRussian()
+                    .shouldBe(
+                            attribute("title", "Перейти на заглавную страницу")
+                    );
+
+        webdriver().shouldHave(url(articlePage.getURL_RUS()));
+
+        articlePage.getArticleTitle()
+                    .shouldBe(text("Google (компания)"));
+
+        articlePage.getMoreLangsButton().scrollIntoView(true).click();
+        //todo получить весь список языкав скроллингом
+
+        articlePage.getElementToScrollDown(35).scrollIntoView(true);
+
+        for (SelenideElement e : articlePage.getAllLangsToChooseList()) {
+            e.shouldNotBe(attribute("title", "Русский"));
+        }
     }
 
 }
